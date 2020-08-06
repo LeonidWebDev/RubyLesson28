@@ -2,4 +2,13 @@
 
 <p><%= @row["content"] %></p>
 <p>Added at <%= @row["created_date"] %></p>
+<br>
+<form action="/details/<%= @row['id'] %>" method="POST">
+    <div  class="form-group">
+        <label for="exampleFormControlTextarea1">comments:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="content" placeholder="enter comment.."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add comment</button>
+</form>
+
     
