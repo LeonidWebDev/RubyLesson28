@@ -1,0 +1,65 @@
+ <h2>Записаться</h2>
+
+<form action="/visit_form" method="POST">
+  <label for="masterSelect1">Выберите мастера</label>
+  <select class="form-control mybg" name="master" id="masterSelect1">
+  <% @barbers.each do |row| %>
+    <option <%= @master == row ? "selected" : "" %>><%= row %></option>
+  <% end %>
+  </select>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Ваше имя</label>
+    <input type="text" class="form-control" name="clientname" id="exampleInputEmail1" placeholder="Введите имя..." value="<%=@clientname%>" aria-describedby="namelHelp">
+    <small id="emailHelp" class="form-text text-muted">Здесь Вы можете оставить ваше имя.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPhone">Ваш телефон</label>
+    <input type="text" class="form-control" name="userphone" id="exampleInputPhone" placeholder="Введите телефон..." value="<%=@userphone%>"aria-describedby="phonelHelp">
+    <small id="emailHelp" class="form-text text-muted">Здесь Вы можете оставить ваш тлефон.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputDate">Когда Вас ждать</label>
+    <input type="text" class="form-control" name="userdate" id="exampleInputDate" placeholder="Введите время..." value="<%=@userdate%>" aria-describedby="dateHelp">
+    <small id="emailHelp" class="form-text text-muted">Здесь Вы можете обозначить удобное время.</small>
+  </div>
+  <div class="form-group">
+    <label for="datetimepicker">пикер</label>
+    <input id="datetimepicker" type="text" class="form-control" name="userdate" placeholder="Введите время..." value="" aria-describedby="dateHelp">
+    <small id="emailHelp" class="form-text text-muted">Здесь Вы можете обозначить удобное время.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleColor">В какие цвета красить: </label>
+    <div>
+      <select name="colorpicker" id="exampleColor">
+      <option value="#7bd148">Green</option>
+      <option value="#5484ed">Bold blue</option>
+      <option value="#a4bdfc">Blue</option>
+      <option value="#46d6db">Turquoise</option>
+      <option value="#7ae7bf">Light green</option>
+      <option value="#51b749">Bold green</option>
+      <option value="#fbd75b">Yellow</option>
+      <option value="#ffb878">Orange</option>
+      <option value="#ff887c">Red</option>
+      <option value="#dc2127">Bold red</option>
+      <option value="#dbadff">Purple</option>
+      <option value="#e1e1e1">Gray</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Записаться</button>
+</form>
+
+<script type="text/javascript">
+  
+
+
+  
+  console.log("hello from visit page")
+
+  $('select[name="colorpicker"]').simplecolorpicker(); 
+  $('#datetimepicker').datetimepicker();
+
+  
+
+     
+</script>
