@@ -3,6 +3,10 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/' do
-  erb '<h1>Hello from sinatra</h1>'
+  erb '<h3>Hello from sinatra</h3>'
+end
+
+get '/new' do
+  erb :new
 end
 
