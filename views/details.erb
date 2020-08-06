@@ -2,10 +2,17 @@
 
 <p><%= @row["content"] %></p>
 <p>Added at <%= @row["created_date"] %></p>
+<hr>
 <br>
+<% @comments.each do |row| %>
+<br>
+<p><%= row['content'] %></p>
+<p style="font-size: 70%; color:#777;"><%= row['created_date'] %></p>
+<hr>
+<% end %>
 <form action="/details/<%= @row['id'] %>" method="POST">
     <div  class="form-group">
-        <label for="exampleFormControlTextarea1">comments:</label>
+        <label for="exampleFormControlTextarea1">your comment:</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="content" placeholder="enter comment.."></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Add comment</button>
