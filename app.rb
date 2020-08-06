@@ -24,7 +24,10 @@ configure do
 end
 
 get '/' do
-  erb '<h3>Hello from sinatra</h3>'
+
+  @results = @db.execute 'select * from Posts order by id desc'
+
+  erb :index
 end
 
 get '/new' do
@@ -41,6 +44,12 @@ post '/new' do
 
   @db.execute 'insert into Posts (content, created_date) values (?,datetime())',[content]
 
-  erb "Thanks for your'e post"
+  redirect to "/"
 end
 
+get '/details/:post_id' do
+  post_id = params[:post_id]
+  results = @db.execute 'select * from Posts where id = ?', [post_id]
+  @row = results[0]
+  erb :details
+end

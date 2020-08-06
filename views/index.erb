@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">content</th>
+      <th scope="col">created_date</th>
+      <th scope="col">show comments</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @results.each do |post| %>
+    <tr>
+      <td><%= post["content"] %></td>
+      <td scope="row">Added at <%= post["created_date"] %> </td>
+      <td ><a href="/details/<%= post['id'] %>">Comments</a></td>
+    </tr>
+<% end %>    
+  </tbody>
+</table>
